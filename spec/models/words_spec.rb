@@ -10,6 +10,7 @@ RSpec.describe Word, type: :model do
   end
   
   describe "Uniqueness" do
+    FactoryGirl.create(:word)
     it { should validate_uniqueness_of(:text) }
   end
   
