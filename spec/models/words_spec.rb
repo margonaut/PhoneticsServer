@@ -4,8 +4,15 @@ require 'rails_helper'
 RSpec.describe Word, type: :model do
   
   
-  it { should validate_presence_of(:text) }
-  it { should validate_presence_of(:transcription) }
+  describe "Columns" do
+    it { should validate_presence_of(:text) }
+    it { should validate_presence_of(:transcription) }
+  end
+  
+  describe "Uniqueness" do
+    it { should validate_uniqueness_of(:text) }
+  end
+  
 
 
 end
