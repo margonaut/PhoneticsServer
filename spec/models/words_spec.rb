@@ -14,6 +14,11 @@ RSpec.describe Word, type: :model do
     it { should validate_uniqueness_of(:text) }
   end
   
+  describe "Letter values only" do
+    it { should_not allow_value("cat1").for(:text) }
+    it { should allow_value("catty").for(:text) }
+  end
+  
 
 
 end
