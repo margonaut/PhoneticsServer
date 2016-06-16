@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160615221013) do
+ActiveRecord::Schema.define(version: 20160616182049) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "phonemes", force: :cascade do |t|
+    t.string  "symbol",   null: false
+    t.string  "category"
+    t.string  "place"
+    t.string  "manner"
+    t.boolean "voiced"
+  end
+
+  add_index "phonemes", ["symbol"], name: "index_phonemes_on_symbol", unique: true, using: :btree
 
   create_table "words", force: :cascade do |t|
     t.string "text",          null: false
