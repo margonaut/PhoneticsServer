@@ -9,6 +9,9 @@ RSpec.describe WordsPhoneme do
     
     it { should validate_presence_of(:word) }
     it { should validate_presence_of(:phoneme) }
+    
+    it { should validate_presence_of(:position) }
+    it { should validate_numericality_of(:position) }
   end
   
   
