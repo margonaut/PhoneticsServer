@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 20160617142454) do
     t.integer "word_id",    null: false
     t.integer "phoneme_id", null: false
     t.integer "position",   null: false
+    
   end
 
 end
