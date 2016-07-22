@@ -21,6 +21,11 @@ ActiveRecord::Schema.define(version: 20160722225959) do
     t.string "description"
   end
 
+  create_table "lists_words", force: :cascade do |t|
+    t.integer "word_id",    null: false
+    t.integer "phoneme_id", null: false
+  end
+
   create_table "phonemes", force: :cascade do |t|
     t.string  "symbol",   null: false
     t.string  "category"
@@ -37,11 +42,6 @@ ActiveRecord::Schema.define(version: 20160722225959) do
   end
 
   add_index "words", ["text"], name: "index_words_on_text", unique: true, using: :btree
-
-  create_table "words_lists", force: :cascade do |t|
-    t.integer "word_id",    null: false
-    t.integer "phoneme_id", null: false
-  end
 
   create_table "words_phonemes", force: :cascade do |t|
     t.integer "word_id",    null: false
