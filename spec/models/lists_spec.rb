@@ -6,6 +6,6 @@ RSpec.describe List, type: :model do
   describe "List" do
     it { should validate_presence_of :name }
 
-    # it { should belong }
+    it { should have_many(:words_lists) }
   end
 end
