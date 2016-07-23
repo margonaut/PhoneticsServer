@@ -12,5 +12,7 @@ RSpec.describe Word, type: :model do
 
     it { should have_many(:words_phonemes) }
     it { should have_many(:phonemes) }
+
+    it { should belong_to(:list) }
   end
 end
