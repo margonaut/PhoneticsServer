@@ -2,7 +2,7 @@ require "factory_girl"
 
 FactoryGirl.define do
   factory :word do
-    sequence(:text, 'a') { |n| "apples#{n}" }
+    sequence(:text, 'b') { |n| "apples#{n}" }
     transcription 'applzzz'
   end
 end
