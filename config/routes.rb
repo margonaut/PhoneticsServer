@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   scope '/api' do
-    resources :words
+    resources :words, only: [:index]
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
