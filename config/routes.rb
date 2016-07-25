@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
-  scope '/api' do
-    resources :words, only: [:index]
-  end
+  resources :words, only: [:index]
+  # scope '/api' do
+  # end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
