@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :words, only: [:index]
+  resources :lists
   # scope '/api' do
   # end
 

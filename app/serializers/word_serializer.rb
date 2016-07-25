@@ -1,3 +1,3 @@
 class WordSerializer < ActiveModel::Serializer
-  attributes :id, :text, :transcription
+  attributes :id, :text, :transcription, :phonemes
 end
