@@ -13,8 +13,7 @@ CSV.foreach('db/phonemes.csv', headers: true) do |row|
   Phoneme.create!(row.to_hash)
 end
 
-
-
+# Create Words
 CSV.foreach('db/IPA_words.csv') do |row|
     text = row.shift
     phonemes = row
@@ -23,32 +22,10 @@ CSV.foreach('db/IPA_words.csv') do |row|
     OrderedPhonemeAssociation.new(word, phonemes)
 end
 
+# Create default
 list = List.create!(name: "Beginner Words")
 
+# Associate words with list
 Word.all.each do |word|
   list.words << word
 end
-
-
-#
-#
-# words = ["state", "repay", "grasp", "few", "gold"
-# "soil", "shelter", "rising", "trail", "type"
-# "agreed", "constant", "forward", "daytime", "members"
-# "length", "melody", "exact", "include", "human"
-# "happily", "details", "paid", "music", "perhaps"
-# "permit", "rarely", "raise", "quietly", "single"
-# "notice", "pause", "solve", "puzzle", "trouble"
-# "understood", "women", "warn", "action", "yesterday"
-# "carefully", "captain", "enjoyment", "equation", "determine"
-# "different", "language", "mammal", "dessert", "favorite"
-# "express", "thoughtful", "surprise", "stomach", "pattern"
-# "pleasure", "probably", "numeral", "neither", "million"
-# "message", "section", "actor", "annual", "beginning"
-# "except", "laughter", "island", "inventor", "journey"
-# "suitcase", "squeeze", "southern", "receive", "protection"
-# "period", "possible", "president", "natural", "slippery"
-# "sweater", "syllable", "tornado", "sandal", "represent"
-# "shoulder", "separate", "business", "chocolate", "chemical"
-# "schedule", "necessary", "weight", "whisper", "weird"
-# "constitution", "ambulance", "successful", "scissors", "rehearse"]
