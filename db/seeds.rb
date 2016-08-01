@@ -15,13 +15,20 @@ end
 
 
 
-CSV.foreach('db/test_CMU.csv') do |row|
+CSV.foreach('db/IPA_words.csv') do |row|
     text = row.shift
     phonemes = row
     transcription = row.join("")
     word = Word.create!(text: text, transcription: transcription)
     OrderedPhonemeAssociation.new(word, phonemes)
-  end
+end
+
+list = List.create!(name: "Beginner Words")
+
+Word.all.each do |word|
+  list.words << word
+end
+
 
 #
 #
@@ -45,7 +52,3 @@ CSV.foreach('db/test_CMU.csv') do |row|
 # "shoulder", "separate", "business", "chocolate", "chemical"
 # "schedule", "necessary", "weight", "whisper", "weird"
 # "constitution", "ambulance", "successful", "scissors", "rehearse"]
-#
-# words.each do |word|
-#
-# end
