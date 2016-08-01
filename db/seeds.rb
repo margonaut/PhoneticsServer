@@ -9,9 +9,9 @@ require 'pry'
 require 'csv'
 
 # Create Phonemes
-# CSV.foreach('db/phonemes.csv', headers: true) do |row|
-#   Phoneme.create!(row.to_hash)
-# end
+CSV.foreach('db/phonemes.csv', headers: true) do |row|
+  Phoneme.create!(row.to_hash)
+end
 
 
 
@@ -19,8 +19,8 @@ CSV.foreach('db/test_CMU.csv') do |row|
     text = row.shift
     phonemes = row
     transcription = row.join("")
-    word = Word.create!(text: word, transcription: transcription)
-    # OrderedPhonemeAssociation.new(word, phonemes)
+    word = Word.create!(text: text, transcription: transcription)
+    OrderedPhonemeAssociation.new(word, phonemes)
   end
 
 #
