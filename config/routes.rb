@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  root 'homes#index'
+
   scope '/api' do
     resources :words, only: [:index]
     resources :lists
